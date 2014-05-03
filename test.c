@@ -5,12 +5,6 @@
 #include <stdio.h>
 #include <string.h>
 
-int printit(const char *str)
-{
-	printf("[%s]\n", str);
-	return 0;
-}
-
 int main()
 {
 	STACK *stack;
