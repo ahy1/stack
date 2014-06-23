@@ -15,6 +15,9 @@ int main()
 	stackpush(stack, "Test2");
 	stackpush(stack, "Test3");
 
+	if (stacksize(stack)==3) puts("OK");
+	else puts("ERROR");
+
 	if (!strcmp(stacktop(stack), "Test3")) puts("OK");
 	else puts("ERROR");
 
@@ -31,10 +34,11 @@ int main()
 	if (stacktop(stack)==NULL) puts("OK");
 	else puts("ERROR");
 
-
 	if (stackpop(stack)==NULL) puts("OK");
 	else puts("ERROR");
 
+	if (stacksize(stack)==0) puts("OK");
+	else puts("ERROR");
 
 	return 0;
 }
