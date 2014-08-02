@@ -3,7 +3,7 @@
 
 ## Description
 
-**stack** is a simple library implmenting a stack of pointers.
+**stack** is a simple library implementing a stack of pointers.
 
 ## Usage
 
@@ -54,7 +54,7 @@ Add a new pointer to the stack.
 
 Return: 0 => OK, -1 => Error
 
-### STACK *stacktop(STACK *stack)
+### void *stacktop(STACK *stack)
 
 Return the pointer on the top of the stack.
 
@@ -62,7 +62,7 @@ Return the pointer on the top of the stack.
 
 Return: Pointer on top of stack, or _NULL_ if error
 
-### STACK *stackpop(STACK *stack)
+### void *stackpop(STACK *stack)
 
 Remove the pointer on the top of the stack.
 
