@@ -65,6 +65,11 @@ void *stacktop(STACK *stack)
 	return stack->ix>0 ? stack->addr[stack->ix-1] : NULL;
 }
 
+void *stackback(STACK *stack, size_t back_index)
+{
+	return stack->ix>back_index ? stack->addr[stack->ix-back_index-1] : NULL;
+}
+
 void *stackpop(STACK *stack)
 {
 	if (stack->ix>0) return stack->addr[--stack->ix];

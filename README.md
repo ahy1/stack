@@ -62,6 +62,15 @@ Return the pointer on the top of the stack.
 
 Return: Pointer on top of stack, or _NULL_ if error
 
+### void *stackback(STACK *stack, size_t back_index)
+
+Return a pointer from the stack.
+
+* _stack_ - Stack handle
+* _back_index_ - Distance from top of stack
+
+Return: Pointer _back_index_ elements from top of stack, or _NULL_ if error
+
 ### void *stackpop(STACK *stack)
 
 Remove the pointer on the top of the stack.

@@ -15,6 +15,7 @@ STACK *stackrealloc(STACK *stack, size_t capacity);
 int stackfree(STACK *stack);
 int stackpush(STACK *stack, void *data);
 void *stacktop(STACK *stack);
+void *stackback(STACK *stack, size_t back_index);
 void *stackpop(STACK *stack);
 size_t stacksize(STACK *stack);
 

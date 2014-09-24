@@ -21,6 +21,18 @@ int main()
 	if (!strcmp(stacktop(stack), "Test3")) puts("OK");
 	else puts("ERROR");
 
+	if (!strcmp(stackback(stack, 0), "Test3")) puts("OK");
+	else puts("ERROR");
+
+	if (!strcmp(stackback(stack, 1), "Test2")) puts("OK");
+	else puts("ERROR");
+
+	if (!strcmp(stackback(stack, 2), "Test1")) puts("OK");
+	else puts("ERROR");
+
+	if (stackback(stack, 3)==NULL) puts("OK");
+	else puts("ERROR");
+
 	stackpop(stack);
 
 	if (!strcmp(stackpop(stack), "Test2")) puts("OK");
