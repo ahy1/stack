@@ -50,7 +50,7 @@ Return: The handle of the possibly reallocated stack
 Add a new pointer to the stack.
 
 * _stack_ - Stack handle
-* _data_ - Character to be appended
+* _data_ - Pointer to be added
 
 Return: 0 => OK, -1 => Error
 
