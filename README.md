@@ -45,7 +45,7 @@ Release all allocations related to a stack.
 
 Return: 0 => OK, -1 => Error 
 
-## int stackdestruct(STACK *stack)
+### int stackdestruct(STACK *stack)
 
 Run destructor function on all elements and release all allocations related to a stack
 
