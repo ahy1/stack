@@ -19,6 +19,15 @@ Create a new stack.
 
 Return: A new stack handle (to be freed with _stackfree_)
 
+### int stacksetdtor(STACK *stack, int (*dtor)(void *))
+
+Set an optional destructor function for elements.
+
+* _stack_ - Stack handle
+* _dtor_ - Destructor function
+
+Return: 0 => Ok, -1 => Error
+
 ### STACK *stackrealloc(STACK *stack, size_t capacity)
 
 Resize a stack.
@@ -35,6 +44,14 @@ Release all allocations related to a stack.
 * _stack_ - Stack handle or _NULL_
 
 Return: 0 => OK, -1 => Error 
+
+## int stackdestruct(STACK *stack)
+
+Run destructor function on all elements and release all allocations related to a stack
+
+* _stack_ - Stack handle
+
+Return: 0 => OK, -1 => Error
 
 ### STACK *stackexpand(STACK *stack, size_t needed_capacity)
 
@@ -78,6 +95,22 @@ Remove the pointer on the top of the stack.
 * _stack_ - Stack handle
 
 Return: Pointer on top of stack, or _NULL_ if error
+
+### int stackpopdestruct(STACK *stack)
+
+Remove element on top of the stack and, if destruct function exists, run it on the element
+
+* _stack_ - Stack handle
+
+Return: 0 => Ok, -1 => Error (Stack is already empty)
+
+### size_t stacksize(STACK *size)
+
+Return number of elements in stack
+
+* _stack_ - Stack handle
+
+Return: Number of element in stack
 
 
 

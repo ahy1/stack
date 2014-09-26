@@ -18,6 +18,13 @@ STACK *stackalloc(size_t capacity)
 	return stack;
 }
 
+int stacksetdtor(STACK *stack, int (*dtor)(void *))
+{
+	stack->dtor=dtor;
+
+	return 0;
+}
+
 STACK *stackrealloc(STACK *stack, size_t capacity)
 {
 	void *oldaddr=stack->addr;
@@ -37,6 +44,13 @@ int stackfree(STACK *stack)
 		free(stack);
 		return 0;
 	} else return -1;
+}
+
+int stackdestruct(STACK *stack)
+{
+	while (stackpopdestruct(stack)==0) ;
+
+	return stackfree(stack);
 }
 
 static STACK *stackexpand(STACK *stack, size_t needed_capacity)
@@ -74,6 +88,17 @@ void *stackpop(STACK *stack)
 {
 	if (stack->ix>0) return stack->addr[--stack->ix];
 	else return NULL;
+}
+
+int stackpopdestruct(STACK *stack)
+{
+	void *e;
+
+	if (!(e=stackpop(stack))) return -1;
+
+	if (stack->dtor) stack->dtor(e);
+
+	return 0;
 }
 
 size_t stacksize(STACK *stack)
